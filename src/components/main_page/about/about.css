@@ -1,0 +1,24 @@
+.about {
+    background: var(--color-lightgray);
+    padding-top: 68px;
+    padding-bottom: 96px;
+}
+
+.about-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: flex-end;
+    gap: 30px;
+}
+
+@media (width < 767px) {
+    .about {
+        padding-top: 38px;
+        padding-bottom: 38px;
+    }
+
+    .about-wrapper {
+        gap: 20px;
+    }
+}

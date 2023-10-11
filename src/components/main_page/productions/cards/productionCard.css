@@ -1,0 +1,125 @@
+.production-card {
+    flex-basis: calc((100% - (2 * 30px)) / 3);
+    flex-grow: 1;
+    height: clamp(260px, 26vw, 500px);
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.production-card-img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.production-card-info {
+    position: absolute;
+    left: 2vw;
+    right: 2vw;
+    top: 70%;
+    z-index: 2;
+    min-height: clamp(68px, 22%, 110px);
+    max-width: calc((100vw - 20px) / 2);
+    transition: 
+    bottom .1s linear,
+    top .5s linear,
+    right .2s linear,
+    left .2s linear;
+}
+
+.production-card-info::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--color-lightgray);
+    border-radius: 10px;
+    transform: skew(-20deg);
+    transition: transform .3s linear;
+}
+
+.production-card-title {
+    position: relative;
+    z-index: 2;
+    text-transform: uppercase;
+    font-size: clamp(14px, 1.5vw, 30px);
+    font-weight: 700;
+    padding: 20px 30px;
+}
+
+.production-card-desc {
+    font-size: clamp(14px, 1.2vw, 24px);
+    opacity: 0;
+    visibility: hidden;
+    max-height: 0;
+    transform: translate(0, 50px);
+    transition: 
+    opacity .3s .4s linear,
+    transform .3s .3s linear;
+}
+
+.production-card:hover .production-card-info {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 60px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+.production-card:hover .production-card-info::before {
+    transform: skew(0);
+    background: var(--color-lightgray) url('/src/img/logo-opacity.svg') no-repeat center;
+    background-size: 100%;
+}
+
+.production-card:hover .production-card-title {
+    padding: 0;
+}
+
+.production-card:hover .production-card-desc {
+    opacity: 1;
+    visibility: visible;
+    max-height: max-content;
+    position: relative;
+    z-index: 2;
+    transform: translate(0, 0);
+}
+
+@media (width < 1199px) {
+    .production-card {
+        flex-basis: calc((100% - 20px) / 2);
+    }
+
+    .production-card-title {
+        padding: 16px 20px;
+    }
+
+    .production-card:hover .production-card-info {
+        max-width: 100%;
+        padding: 16px 20px;
+    }
+}
+
+@media (width < 767px) {
+    .production-card {
+        flex-basis: 100%;
+    }
+
+    .production-card-info {
+        max-width: 100%;
+        left: 7vw;
+        right: 7vw;
+    }
+}

@@ -1,0 +1,17 @@
+.about-item-number {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: start;
+    gap: 20px;
+}
+
+.about-item-number .number {
+    font-weight: 900;
+}
+
+@media (width < 767px) {
+    .about-item-number {
+        gap: 10px;
+    }
+}

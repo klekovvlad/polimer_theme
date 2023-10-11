@@ -1,0 +1,17 @@
+.button {
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: clamp(16px, 0.9vw, 18px);
+    border: none;
+    background: var(--color-main);
+    border-radius: 10px;
+    padding: 15px;
+    max-width: 336px;
+}
+
+@media (width < 767px) {
+    .button {
+        max-width: 100%;
+    }
+}
