@@ -1,0 +1,19 @@
+.title-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 60px;
+    gap: 60px;
+}
+
+.title-wrapper .title {
+    flex-grow: 1;
+    margin-bottom: 0;
+}
+
+@media (width < 1199px) {
+    .title-wrapper {
+        margin-bottom: 20px;
+        gap: 20px;
+    }
+}

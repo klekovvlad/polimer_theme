@@ -19,6 +19,7 @@
   "dependencies": {
     "@wordpress/scripts": "^26.14.0",
     "react-router-dom": "^6.16.0",
-    "scss": "^0.2.4"
+    "scss": "^0.2.4",
+    "swiper": "^10.3.1"
   }
 }

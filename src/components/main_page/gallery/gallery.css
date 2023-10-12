@@ -1,0 +1,11 @@
+.gallery {
+    padding-top: 85px;
+    padding-bottom: 130px;
+}
+
+@media (width < 1199px) {
+    .gallery {
+        padding-top: 30px;
+        padding-bottom: 60px;
+    }
+}

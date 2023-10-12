@@ -1,0 +1,11 @@
+.feedbacks {
+    padding-top: 85px;
+    padding-bottom: 85px;
+}
+
+@media (width < 1199px) {
+    .feedbacks {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+}

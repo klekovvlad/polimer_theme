@@ -1,0 +1,67 @@
+.about-production-card {
+    background: var(--color-text);
+    border-radius: 10px;
+    padding: 30px 44px;
+    color: #fff;
+    font-weight: 700;
+    max-width: 420px;
+    font-size: clamp(14px, 1vw, 20px);
+    position: relative;
+}
+
+.about-production-card::before {
+    content: '';
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--color-main) url('/src/img/icons/logo_small.svg') no-repeat center;
+    background-size: 60%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.about-production-card:nth-child(even) {
+    margin-left: auto;
+}
+
+@media (width > 767px) {
+    .about-production-card:nth-child(2) {
+        margin-right: 7%;
+    }
+    
+    .about-production-card:nth-child(3) {
+        margin-left: 7%;
+    }
+}
+
+.about-production-card-desc {
+    font-size: 0.9em;
+}
+
+.about-production-card-title {
+    margin-bottom: 20px;
+}
+
+@media (width < 1199px) {
+    .about-production-card {
+        padding: 20px;
+        max-width: 320px;
+    }
+
+    .about-production-card-title {
+        margin-bottom: 10px;
+    }
+}
+
+@media (width < 767px) {
+    .about-production-card {
+        max-width: 60vw;
+    }
+
+    .about-production-card::before {
+        width: 22px;
+        height: 22px;
+    }
+}

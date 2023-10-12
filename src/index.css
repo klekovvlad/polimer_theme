@@ -73,7 +73,8 @@ body {
     font-family: 'Exo2', sans-serif;
 }
 
-section {
+section,
+.swiper {
     padding-left: clamp(20px, 3.1vw ,60px);
     padding-right: clamp(20px, 3.1vw ,60px);
 }
@@ -97,6 +98,7 @@ h2.title {
 h2.title::after {
     content: '';
     flex-grow: 1;
+    flex-basis: 50px;
     height: 1px;
     background: var(--color-border);
 }

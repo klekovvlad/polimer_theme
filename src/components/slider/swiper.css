@@ -1,0 +1,15 @@
+.swiper-wrapper {
+    align-items: stretch;
+}
+
+.swiper-slide {
+    height: auto;
+}
+
+.swiper-button-lock {
+    display: none;
+}
+
+.slider-buttons:has(.swiper-button-lock) {
+    display: none;
+}

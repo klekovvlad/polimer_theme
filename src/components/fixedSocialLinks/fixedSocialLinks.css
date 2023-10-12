@@ -9,6 +9,7 @@
 .social-links-fixed .social-links {
     flex-direction: column;
     gap: 10px;
+    transition: top .3s linear;
 }
 
 .social-links-fixed .social-link {
@@ -20,6 +21,16 @@
 
 .social-links-fixed button.close {
     margin: 0px auto 10px;
+}
+
+.social-link.open {
+    background: var(--color-main) url('/src/img/icons/arrow.svg') no-repeat center;
+    background-size: 50% 50%;
+}
+
+.social-links-fixed.close {
+    top: 100%;
+    transform: translate(0, calc(-100% - 20px));
 }
 
 @media (width < 1199px) {

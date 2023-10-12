@@ -1,0 +1,7 @@
+.gallery-item {
+    height: clamp(290px, 33vw, 580px);
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+}
