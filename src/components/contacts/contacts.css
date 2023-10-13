@@ -1,14 +1,14 @@
 .contacts-wrapper {
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: flex-start;
 }
 
 .contacts {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    justify-content: start;
+    justify-content: flex-start;
     gap: 10px;
 }
 

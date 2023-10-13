@@ -7,6 +7,7 @@ import AboutProduction from "./aboutProduction/AboutProduction";
 import Feedbacks from "./feedbacks/Feedbacks";
 import Gallery from "./gallery/Gallery";
 import Faq from "./faq/Faq";
+import Quiz from "./quiz/Quiz";
 
 const Main = () => {
     const { state } = useContext(AppContext)
@@ -19,6 +20,7 @@ const Main = () => {
             <AboutProduction state={state.acf.about_production} />
             <Feedbacks state={state.acf.feedbacks} />
             <Gallery state={state.acf.gallery} />
+            <Quiz state={ state.acf.quiz } />
             <Faq state={state.acf.faq} />
         </main>
     )

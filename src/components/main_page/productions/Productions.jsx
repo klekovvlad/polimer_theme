@@ -1,12 +1,13 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import Title from '../../title/Title'
 import ProductinCard from './cards/ProductionCard'
 import './productions.css'
+import { AppContext } from '../../../App'
 
 const Productions = () => {
     const [title, setTitle] = useState('')
     const [isLoad, setIsLoad] = useState(false)
-    const [production, setProduction] = useState([])
+    const { production, setProduction } = useContext(AppContext)
 
     useEffect(() => {
         fetch('/wp-json/wp/v2/posts/?categories=2')

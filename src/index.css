@@ -91,7 +91,7 @@ h2.title {
     margin: 0px 0px 60px;
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: flex-start;
     gap: 60px;
 }
 

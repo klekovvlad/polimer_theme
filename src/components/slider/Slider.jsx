@@ -13,8 +13,6 @@ const Slider = ( {
     swiper
  } ) => {
 
-    console.log(swiper)
-
     return (
         <Swiper className={`${className ? className : ''} ${swiper?.autoplay ? 'swiper-autoplay' : ''}`}
             modules={[Navigation, Autoplay]}
@@ -39,7 +37,7 @@ const Slider = ( {
                 }
             }
             // loop={ swiper?.autoplay ? true : false }
-            speed={5000}
+            speed={swiper?.autoplay ? 5000 : 2000}
             autoplay={
                 swiper?.autoplay ?
                 { 

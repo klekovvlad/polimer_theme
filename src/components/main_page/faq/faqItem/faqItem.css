@@ -59,7 +59,7 @@
 
 
 @media (hover: hover) {
-    .faq-item:hover .faq-question::after {
+    .faq-item:not(.open):hover .faq-question::after {
         background-color: var(--color-text);
     }
 }
