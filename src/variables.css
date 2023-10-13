@@ -3,4 +3,5 @@
     --color-main: #33CE34;
     --color-border: #D8D8D8;
     --color-lightgray: #F1F1F1;
+    --size-18: clamp(14px, 0.95vw, 18px)
 }

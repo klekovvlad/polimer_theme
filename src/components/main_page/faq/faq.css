@@ -1,0 +1,46 @@
+.faq {
+    padding-top: 130px;
+    padding-bottom: 85px;
+}
+
+.faq-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: start;
+    grid-gap: 50px;
+}
+
+.faq-img {
+    left: clamp(20px, 3.1vw ,60px);
+}
+
+.faq-img img {
+    width: 100%;
+    object-fit: cover;
+    object-position: left bottom;
+}
+
+.faq-items {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+@media (width < 1199px) {
+    .faq {
+        padding-top: 60px;
+        padding-bottom: 30px;
+    }
+
+    .faq-wrapper {
+        grid-gap: 30px;
+    }
+}
+
+@media (width < 767px) {
+    .faq-wrapper {
+        grid-template-columns: 1fr;
+    }
+}

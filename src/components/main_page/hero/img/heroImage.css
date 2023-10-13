@@ -17,17 +17,8 @@
 
 }
 
-.hero-img::before {
-    content: '';
-    width: clamp(150px, 22vw,435px);
-    height: clamp(85px, 22vh, 245px);
-    background: url('/src/img/logo-opacity.svg') no-repeat center;
-    background-size: contain;
-    position: absolute;
-    top: 50%;
-    left: 50%;
+.hero-img.hasLogo::before {
     transform: translate(-50%, -50%) skew(20deg);
-    z-index: 2;
 }
 
 @media (width < 767px) {
