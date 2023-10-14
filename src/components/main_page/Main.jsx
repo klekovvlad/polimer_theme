@@ -8,6 +8,8 @@ import Feedbacks from "./feedbacks/Feedbacks";
 import Gallery from "./gallery/Gallery";
 import Faq from "./faq/Faq";
 import Quiz from "./quiz/Quiz";
+import Popup from "../popup/Popup";
+import Contacts from "./contacts/Contacts";
 
 const Main = () => {
     const { state } = useContext(AppContext)
@@ -22,6 +24,7 @@ const Main = () => {
             <Gallery state={state.acf.gallery} />
             <Quiz state={ state.acf.quiz } />
             <Faq state={state.acf.faq} />
+            <Contacts state={state.acf.contacts} />
         </main>
     )
 }

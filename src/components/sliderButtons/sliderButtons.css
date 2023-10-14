@@ -14,6 +14,7 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: 50% 50%;
+    transition: background .3s linear;
 }
 
 .slider-button-next {
@@ -28,5 +29,11 @@
 @media (width < 1199px) {
     .slider-buttons {
         display: none;
+    }
+}
+
+@media (hover: hover) {
+    .slider-button:hover {
+        background-color: var(--color-text);
     }
 }

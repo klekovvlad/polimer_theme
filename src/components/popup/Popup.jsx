@@ -4,7 +4,7 @@ import './popup.css'
 import Button from "../button/Button"
 import { IMaskInput } from "react-imask"
 import { POPUP_TYPES } from "./types"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 const initForm = {
     'Имя': '',
@@ -16,6 +16,7 @@ const Popup = () => {
     const [form, setForm] = useState(initForm)
     const { state, quiz, popup, setPopup } = useContext(AppContext)
     const popups = state.acf.popups;
+    const navigate = useNavigate()
 
     const closePopup = () => {
         setPopup(
@@ -30,10 +31,27 @@ const Popup = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        setForm(initForm)
+        const phoneInput = e.target.querySelector('input[name="Телефон"]')
+
+        if(phoneInput.value.length < 16) {
+            phoneInput.classList.add('no-valid')
+        }else{
+            let str = ''
+            const data = popup.type === POPUP_TYPES.CALLBACK ? {...form, ...quiz} : {...form}
+            for(let key in data) {
+                str = str + `${key}: ${data[key]} \n`
+            }
+            send(str)
+
+            setForm(initForm)
+        }
     }
 
     const handleChange = (e) => {
+        if(e.target.classList.contains('no-valid')) {
+            e.target.classList.remove('no-valid')
+        }
+
         setForm({
             ...form,
             [e.target.name]: e.target.value
@@ -57,6 +75,21 @@ const Popup = () => {
         }else{
             return <></>
         }
+    }
+
+    const send = (message) => {
+        const formData = new FormData()
+        formData.append('message', message)
+        
+        fetch('/wp-json/contact-form-7/v1/contact-forms/160/feedback', {
+            method: 'POST',
+            body: formData
+        })
+        .then(res => res.json())
+        .then(res => {
+            setPopup({...popup, open: false})
+            navigate('/thanks/')
+        })
     }
 
     return (

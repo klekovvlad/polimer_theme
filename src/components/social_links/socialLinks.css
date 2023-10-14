@@ -13,6 +13,15 @@
     justify-content: center;
     background: var(--color-text);
     border-radius: 10px;
+    transition: background .3s linear;
+}
+
+.social-link:active:hover {
+    background: #FFF;
+}
+
+.social-link:active img {
+    filter: brightness(0) saturate(100%) invert(16%) sepia(27%) saturate(0%) hue-rotate(258deg) brightness(101%) contrast(90%);
 }
 
 .social-link img {
@@ -20,4 +29,25 @@
     object-position: center;
     width: 50%;
     height: 50%;
+}
+
+.social-links__dark .social-link {
+    background: #fff;
+}
+
+.social-links__dark .social-link img {
+    filter: brightness(0) saturate(100%) invert(16%) sepia(27%) saturate(0%) hue-rotate(258deg) brightness(101%) contrast(90%);
+}
+
+@media (width < 1199px) {
+    .social-link {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+@media (hover: hover) {
+    .social-link:hover {
+        background: var(--color-main);
+    }
 }

@@ -15,8 +15,18 @@
 .social-links-fixed .social-link {
     width: 80px;
     height: 80px;
-    background: var(--color-main);
+    background-color: var(--color-main);
     border-radius: 10px 0px 0px 10px;
+}
+
+.social-links-fixed .social-link:active,
+.social-links-fixed .social-link:active:hover {
+    background-color: #FFF;
+}
+
+.social-links-fixed .social-link:active img,
+.social-links-fixed .social-link:active:hover img {
+    filter: brightness(0) saturate(100%) invert(16%) sepia(27%) saturate(0%) hue-rotate(258deg) brightness(101%) contrast(90%);
 }
 
 .social-links-fixed button.close {
@@ -24,7 +34,10 @@
 }
 
 .social-link.open {
-    background: var(--color-main) url('/src/img/icons/arrow.svg') no-repeat center;
+    background-color: var(--color-main);
+    background-image: url('/src/img/icons/arrow.svg');
+    background-repeat: no-repeat;
+    background-position: center;
     background-size: 50% 50%;
 }
 
@@ -44,3 +57,9 @@
         height: 50px;
     }
 }
+
+@media (hover: hover) {
+    .social-links-fixed .social-link:hover {
+        background-color: var(--color-text);
+    }
+} 

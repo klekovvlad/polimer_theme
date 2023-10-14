@@ -112,6 +112,10 @@ input[type=tel]::placeholder {
     z-index: 2;
 }
 
+input.no-valid {
+    border: 1px solid var(--color-yelow);
+}
+
 @media (width < 1199px) {
     input[type=radio] ~ label,
     input[type=text],

@@ -1,0 +1,39 @@
+.loader {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 11;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader-text {
+    font-size: var(--size-18);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+}
+
+.loader-text::before {
+    content: '';
+    width: clamp(80px, .85vw ,160px);
+    aspect-ratio: 1 / 1;
+    display: block;
+    border-radius: 50%;
+    border: 4px solid var(--color-main);
+    border-right: 4px solid transparent;
+    animation: loader 2s linear infinite ;
+}
+
+@keyframes loader {
+    to {
+        transform: rotate(360deg);
+    }
+}

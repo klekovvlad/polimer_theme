@@ -2,7 +2,7 @@ import { AppContext } from "../../App";
 import { useContext } from 'react';
 import './socialLinks.css'
 
-const SocialLinks = ({ summ, phone }) => {
+const SocialLinks = ({ summ, phone, dark }) => {
     const {state} = useContext(AppContext)
 
     const links = state.acf.social
@@ -26,7 +26,7 @@ const SocialLinks = ({ summ, phone }) => {
     }
 
     return (
-        <div className="social-links">
+        <div className={ `social-links ${ dark ? 'social-links__dark' : '' }` }>
             { socialLinks }
         </div>
     )

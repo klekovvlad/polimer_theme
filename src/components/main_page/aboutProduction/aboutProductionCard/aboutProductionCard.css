@@ -7,6 +7,7 @@
     max-width: 420px;
     font-size: clamp(14px, 1vw, 20px);
     position: relative;
+    transition: background .3s linear;
 }
 
 .about-production-card::before {
@@ -24,6 +25,12 @@
 
 .about-production-card:nth-child(even) {
     margin-left: auto;
+}
+
+@media (hover: hover) {
+    .about-production-card:hover {
+        background: var(--color-main);
+    }
 }
 
 @media (width > 767px) {

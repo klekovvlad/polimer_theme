@@ -3,8 +3,9 @@
     --color-main: #33CE34;
     --color-border: #D8D8D8;
     --color-lightgray: #F1F1F1;
+    --color-yelow: #F6C341;
     --size-14: clamp(12px, 0.75vw, 14px);
-    --size-18: clamp(14px, 0.95vw, 18px);
+    --size-18: clamp(16px, 0.95vw, 18px);
     --size-24: clamp(18px, 1.25vw, 24px);
     --size-30: clamp(18px, 1.56vw, 30px);
     --size-40: clamp(16px, 2vw, 40px)

@@ -1,0 +1,23 @@
+.ourcontacts {
+    padding-top: 85px;
+    padding-bottom: 60px;
+}
+
+.ourcontacts-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+    align-items: stretch;
+}
+
+@media (width < 1199px) {
+    .ourcontacts-wrapper {
+        grid-gap: 20px;
+    }
+}
+
+@media (width < 767px) {
+    .ourcontacts-wrapper {
+        grid-template-columns: 1fr;
+    }
+}

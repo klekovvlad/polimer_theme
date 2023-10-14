@@ -12,10 +12,18 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 30px;
+    flex-wrap: wrap;
+    gap: 10px 30px;
     margin-bottom: 20px;
     font-size: var(--size-24);
     font-weight: 700;
+}
+
+.quiz-question.no-valid::after {
+    content: 'Выберите пленку';
+    font-size: var(--size-18);
+    color: var(--color-yelow);
+    font-weight: 400;
 }
 
 .quiz-question .number {

@@ -71,6 +71,15 @@ body {
     color: var(--color-text);
     line-height: 1.2;
     font-family: 'Exo2', sans-serif;
+    min-height: 100dvh;
+}
+
+#root {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
 }
 
 section,

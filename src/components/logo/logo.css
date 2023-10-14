@@ -4,15 +4,21 @@
     justify-content: flex-start;
     gap: clamp(5px, 1vw, 20px);
     max-width: clamp(142px, 23vw, 445px);
+    flex: 0 0 clamp(142px, 23vw, 445px);
+}
+
+.logo img {
+    max-width: calc(100% - 140px);
 }
 
 .logo-text {
+    display: block;
     text-transform: uppercase;
     font-size: clamp(10px, 0.9vw, 18px);
     max-width: 140px;
 }
 
-@media (width < 767px) {
+@media (width < 1199px) {
     .logo {
         flex-direction: column;
         align-items: stretch;

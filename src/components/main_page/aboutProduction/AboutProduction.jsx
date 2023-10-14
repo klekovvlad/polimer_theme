@@ -13,7 +13,9 @@ const AboutProduction = ( { state } ) => {
             <section className="about-production">
                 <div className="about-production-wrapper">
                     <Title title={state.title} />
-                    <img src={state.bg.url} alt={state.bg.alt} className="about-production-img" />
+                    <div style={{
+                        backgroundImage: `url(${state.bg.url})`
+                    }} className="about-production-img"></div>
                     <div className="about-production-cards">
                         { cards }
                     </div>

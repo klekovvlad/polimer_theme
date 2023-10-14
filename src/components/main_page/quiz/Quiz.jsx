@@ -1,5 +1,5 @@
 import { AppContext } from "../../../App"
-import { useContext, useState, useEffect } from 'react'
+import { useContext, useState, useEffect, useRef } from 'react'
 import Title from "../../title/Title"
 import { IMaskInput } from "react-imask"
 import Button from "../../button/Button"
@@ -10,6 +10,8 @@ const Quiz = ({ state }) => {
     const { production, quiz, setQuiz, popup, setPopup } = useContext(AppContext)
     const [summary, setSummary] = useState(0)
     const [price, setPrice] = useState(0)
+    const weightInput = useRef(null)
+    const typeTitle = useRef(null)
 
     const handleInputChange = (e) => {
 
@@ -22,10 +24,16 @@ const Quiz = ({ state }) => {
 
         if(e.target.dataset.price) {
             setPrice(e.target.dataset.price)
+
+            if(typeTitle.current.classList.contains('no-valid')) {
+                typeTitle.current.classList.remove('no-valid')
+            }
+        }else{
+            if(e.target.classList.contains('no-valid')) {
+                e.target.classList.remove('no-valid')
+            }
         }
     }
-
-
 
     useEffect(() => {
         if(quiz['Вес рулона']) {
@@ -42,21 +50,32 @@ const Quiz = ({ state }) => {
     ))
 
     const handleButton = () => {
-        console.log('ok')
-        setPopup({
-            ...popup,
-            open: true,
-            type: POPUP_TYPES.CALLBACK
-        })
-    }
+        let valid = true
 
-    console.log(popup)
+        if(weightInput.current.element.value === '') {
+            weightInput.current.element.classList.add('no-valid')
+            valid = false
+        }
+        if(!quiz['Какая пленка вам нужна?']) {
+            typeTitle.current.classList.add('no-valid')
+            valid = false
+        }
+
+        if(valid) {
+            setPopup({
+                ...popup,
+                open: true,
+                type: POPUP_TYPES.CALLBACK
+            })
+        }
+
+    }
 
     return (
         <section className="quiz">
             <Title title={ state.title } />
             <div className="quiz-wrapper">
-                <div className="quiz-question">
+                <div ref={ typeTitle } className="quiz-question">
                     <span className="number hasSlash">1</span>
                     Какая пленка вам нужна?
                 </div>
@@ -81,7 +100,7 @@ const Quiz = ({ state }) => {
                     </div>
                     <div className="input" data-one="кг">
                         <label htmlFor="input-weight">Вес рулона</label>
-                        <IMaskInput mask={ Number } type="number" min={0} max={5000} radix="." onChange={ handleInputChange } value={ quiz['Вес рулона'] } name="Вес рулона" id="input-weight" placeholder="Введите параметры" />
+                        <IMaskInput ref={ weightInput } mask={ Number } type="number" min={0} max={5000} radix="." onChange={ handleInputChange } value={ quiz['Вес рулона'] } name="Вес рулона" id="input-weight" placeholder="Введите параметры" />
                     </div>
                 </div>
             </div>
