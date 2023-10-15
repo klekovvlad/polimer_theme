@@ -9,6 +9,9 @@
     gap: clamp(20px, 2vw, 42px);
     height: 100%;
     font-size: clamp(14px, 1vw, 18px);
+    transform: translate(0, 50px);
+    opacity: 0;
+    transition: transform .5s linear, opacity .5s linear;
 }
 
 .feedback-author {
@@ -17,7 +20,8 @@
     grid-gap: 20px 30px;
 }
 
-.feedback-author-photo {
+.feedback-author-photo,
+.feedback-author .skeleton {
     grid-row-start: span 3;
     border-radius: 5px;
     width: 100%;

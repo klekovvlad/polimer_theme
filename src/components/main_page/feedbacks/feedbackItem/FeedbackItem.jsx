@@ -1,6 +1,13 @@
+import Skeleton from '../../../skeleton/Skeleton'
 import './feedbackItem.css'
+import { useInView } from 'react-intersection-observer'
 
 const FeedbackItem = ({item}) => {
+    
+    const { ref, inView } = useInView({
+        threshold: 0.1,
+        triggerOnce: true
+    })
 
     const author = item.author
     const authorName = author.name ? author.name : 'Аноним'
@@ -16,9 +23,9 @@ const FeedbackItem = ({item}) => {
     }
 
     return (
-        <div className="feedback-item">
+        <div ref={ ref } className={ `feedback-item ${ inView ? 'active' : '' }` }>
             <div className="feedback-author">
-                { author.photo ? <img src={ author.photo.url } alt={ 'Отзыв' + author.name } className="feedback-author-photo" /> : <div className="feedback-author-photo"></div> }
+                { author.photo && inView ? <img src={ author.photo.url } alt={ 'Отзыв' + author.name } className="feedback-author-photo" /> : <Skeleton aspect_ratio={'1 / 1'} /> }
                 <div className="feedback-author-name"> { authorName } </div>
                 <div className="feedback-author-city"> { authorCity } </div>
                 <div className="feedback-stars"> 

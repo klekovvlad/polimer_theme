@@ -11,8 +11,44 @@
     margin-bottom: 0;
 }
 
+h2.title {
+    margin: 0px 0px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 60px;
+    transform: translate(0, 50px);
+    opacity: 0;
+    transition: transform .3s linear, opacity .3s linear;
+}
+
+h2.title.active {
+    transform: translate(0, 0);
+    opacity: 1;
+}
+
+h2.title::after {
+    content: '';
+    flex-grow: 1;
+    flex-basis: 50px;
+    height: 1px;
+    background: var(--color-border);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .8s .5s linear;
+}
+
+h2.title.active::after {
+    transform: scaleX(1);
+}
+
 @media (width < 1199px) {
     .title-wrapper {
+        margin-bottom: 20px;
+        gap: 20px;
+    }
+
+    h2.title {
         margin-bottom: 20px;
         gap: 20px;
     }

@@ -5,11 +5,9 @@
 }
 
 .about-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: stretch;
-    justify-content: flex-end;
-    gap: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
 }
 
 @media (width < 767px) {
@@ -19,6 +17,7 @@
     }
 
     .about-wrapper {
-        gap: 20px;
+        grid-gap: 20px;
+        grid-template-columns: 1fr;
     }
 }

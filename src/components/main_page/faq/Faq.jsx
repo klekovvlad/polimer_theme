@@ -1,8 +1,15 @@
 import Title from "../../title/Title";
 import FaqItem from "./faqItem/FaqItem";
 import './faq.css'
+import { useInView } from "react-intersection-observer";
+import Skeleton from "../../skeleton/Skeleton";
 
  const Faq = ( {state} ) => {
+
+    const { ref, inView } = useInView({
+        threshold: 0.1,
+        triggerOnce: true
+    })
 
     const getImage = () => {
         if(state.img) {
@@ -21,13 +28,13 @@ import './faq.css'
     if(!state.hide) {
         
         return (
-            <section className="faq">
+            <section ref={ ref } className="faq">
                 <Title title={ state.title } />
                 <div className="faq-wrapper">
                     <div className="faq-items">
                         { questions }
                     </div>
-                    { getImage() }
+                    { inView ? getImage() : <Skeleton height='280px' /> }
                 </div>
             </section>
         )

@@ -9,13 +9,18 @@ const Page = ({ page_id, button, className }) => {
     const [isLoad, setIsLoad] = useState(false)
 
     useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            left: 0
+        })
+
         fetch(`/wp-json/wp/v2/pages/${page_id}`)
         .then(res => res.json())
         .then(data => {
             setPageContent(data.content.rendered)
             setIsLoad(true)
         })
-    })
+    }, [])
 
     if(isLoad) {
         return (

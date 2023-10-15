@@ -1,8 +1,14 @@
 import Title from "../../title/Title"
 import AboutProductionCard from "./aboutProductionCard/AboutProductionCard"
 import './aboutProduction.css';
+import { useInView } from "react-intersection-observer";
 
 const AboutProduction = ( { state } ) => {
+    
+    const { ref, inView } = useInView({
+        triggerOnce: true,
+        threshold: 0.2
+    })
 
     const cards = state.items.map(({item}, index) => (
         <AboutProductionCard key={index} card={item} />
@@ -13,9 +19,9 @@ const AboutProduction = ( { state } ) => {
             <section className="about-production">
                 <div className="about-production-wrapper">
                     <Title title={state.title} />
-                    <div style={{
-                        backgroundImage: `url(${state.bg.url})`
-                    }} className="about-production-img"></div>
+                    <div ref={ ref } style={{
+                        backgroundImage:  inView ? `url(${state.bg.url})` : 'var(--color-border)' 
+                    }} className={ `about-production-img ${ inView ? 'active' : '' }` }></div>
                     <div className="about-production-cards">
                         { cards }
                     </div>

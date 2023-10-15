@@ -1,11 +1,16 @@
 import { useContext } from 'react'
 import { AppContext } from '../../../../App'
 import './contactItem.css'
+import { useInView } from 'react-intersection-observer'
 
 const ContactItem = ({item}) => {
 
     const { state } = useContext(AppContext)
-
+    const { ref, inView } = useInView({
+        threshold: 0.2,
+        triggerOnce: true
+    })
+ 
     let contacts = null
     let prefix = ''
 
@@ -27,7 +32,7 @@ const ContactItem = ({item}) => {
     }
 
     return (
-        <div className="ourcontacts-item">
+        <div ref={ ref } className={`ourcontacts-item ${ inView ? 'active' : '' }`}>
             <img src={ item.icon.url } alt={ item.icon.alt } className="ourcontacts-item-icon" />
             <div className="ourcontacts-item-title">{ item.title }</div>
             { contacts }

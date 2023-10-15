@@ -1,6 +1,12 @@
 import './faqItem.css'
+import { useInView } from 'react-intersection-observer'
 
 const FaqItem = ({ item }) => {
+
+    const { ref, inView } = useInView({
+        triggerOnce: true,
+        threshold: 0.2
+    })
 
     const handlerClick = (e) => {
         const items = document.querySelectorAll('.faq-item')
@@ -24,7 +30,7 @@ const FaqItem = ({ item }) => {
     }
 
     return (
-        <div className="faq-item" onClick={ handlerClick }>
+        <div ref={ ref } className={`faq-item ${ inView ? 'active' : '' }`} onClick={ handlerClick }>
             <div className="faq-question">{ item.question }</div>
             <div className="faq-answer">{ item.answer }</div>
         </div>

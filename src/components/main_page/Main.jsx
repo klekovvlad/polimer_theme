@@ -10,6 +10,7 @@ import Faq from "./faq/Faq";
 import Quiz from "./quiz/Quiz";
 import Popup from "../popup/Popup";
 import Contacts from "./contacts/Contacts";
+import Map from "./map/Map";
 
 const Main = () => {
     const { state } = useContext(AppContext)
@@ -25,6 +26,7 @@ const Main = () => {
             <Quiz state={ state.acf.quiz } />
             <Faq state={state.acf.faq} />
             <Contacts state={state.acf.contacts} />
+            <Map />
         </main>
     )
 }

@@ -11,10 +11,13 @@ const initForm = {
     'Телефон': ''
 }
 
+const initQuiz = {}
+
 const Popup = () => {
 
+    const [isLoad, setIsLoad] = useState(false)
     const [form, setForm] = useState(initForm)
-    const { state, quiz, popup, setPopup } = useContext(AppContext)
+    const { state, quiz, setQuiz, popup, setPopup } = useContext(AppContext)
     const popups = state.acf.popups;
     const navigate = useNavigate()
 
@@ -36,14 +39,13 @@ const Popup = () => {
         if(phoneInput.value.length < 16) {
             phoneInput.classList.add('no-valid')
         }else{
+            setIsLoad(true)
             let str = ''
             const data = popup.type === POPUP_TYPES.CALLBACK ? {...form, ...quiz} : {...form}
             for(let key in data) {
                 str = str + `${key}: ${data[key]} \n`
             }
             send(str)
-
-            setForm(initForm)
         }
     }
 
@@ -88,13 +90,19 @@ const Popup = () => {
         .then(res => res.json())
         .then(res => {
             setPopup({...popup, open: false})
+            setQuiz(initQuiz)
+            setForm(initForm)
             navigate('/thanks/')
+            setIsLoad(false)
+        })
+        .catch(error => {
+            alert('Произошла ошибка, попробуйте позже')
         })
     }
 
     return (
         <div onClick={ handleClick } className={`popup ${ popup.open ? 'open' : '' }`}>
-            <div className="popup-body">
+            <div className={`popup-body ${ isLoad ? 'popup-load' : '' }`}>
                 <button onClick={ handleCloseButton } className="close"></button>
                 <div className="popup-title">{ popups[popup.type].title }</div>
                 <form onSubmit={ handleSubmit }>
@@ -104,7 +112,7 @@ const Popup = () => {
                     <Button text={ popups[popup.type].button } />
                 </form>
                 <div className="popup-rules">
-                    Нажимая на кнопку “Заказать производство”, я соглашаюсь на обработку персональных данных и соглашаюсь с <Link to={'/'}>политикой конфиденциальности</Link>
+                    Нажимая на кнопку “{ popups[popup.type].button }”, я соглашаюсь на обработку персональных данных и соглашаюсь с <Link onClick={() => {setPopup({...popup, open: false})}} to={'/privacy-policy/'}>политикой конфиденциальности</Link>
                 </div>
             </div>
         </div>

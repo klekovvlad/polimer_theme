@@ -41,7 +41,7 @@
     background-size: 50% 50%;
 }
 
-.social-links-fixed.close {
+.social-links-fixed.closed {
     top: 100%;
     transform: translate(0, calc(-100% - 20px));
 }

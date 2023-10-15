@@ -24,6 +24,11 @@ const App = () => {
     
 
     useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            left: 0
+        })
+
         fetch('/wp-json/wp/v2/pages/7')
         .then(res => res.json())
         .then(data => {
@@ -47,6 +52,8 @@ const App = () => {
                     <Routes>
                         <Route index element={<Main />} />
                         <Route path="/thanks/" element={<Page className="thanks" page_id={161} button={true} />}/>
+                        <Route path="/privacy-policy/" element={<Page className="rules" page_id={194} />}/>
+                        <Route path="/privacy/" element={<Page className="rules" page_id={192}  />}/>
                     </Routes>
                     <Footer />
                     <FixedSocialLinks />

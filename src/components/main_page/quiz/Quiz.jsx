@@ -5,6 +5,7 @@ import { IMaskInput } from "react-imask"
 import Button from "../../button/Button"
 import './quiz.css'
 import { POPUP_TYPES } from "../../popup/types"
+import { useInView } from "react-intersection-observer"
 
 const Quiz = ({ state }) => {
     const { production, quiz, setQuiz, popup, setPopup } = useContext(AppContext)
@@ -12,6 +13,10 @@ const Quiz = ({ state }) => {
     const [price, setPrice] = useState(0)
     const weightInput = useRef(null)
     const typeTitle = useRef(null)
+    const { ref, inView } = useInView({
+        triggerOnce: true,
+        threshold: 0
+    })
 
     const handleInputChange = (e) => {
 
@@ -65,16 +70,16 @@ const Quiz = ({ state }) => {
             setPopup({
                 ...popup,
                 open: true,
-                type: POPUP_TYPES.CALLBACK
+                type: POPUP_TYPES.ORDER
             })
         }
 
     }
 
     return (
-        <section className="quiz">
+        <section ref={ ref } className="quiz">
             <Title title={ state.title } />
-            <div className="quiz-wrapper">
+            <div className={ `quiz-wrapper ${ inView ? 'active' : '' }` }>
                 <div ref={ typeTitle } className="quiz-question">
                     <span className="number hasSlash">1</span>
                     Какая пленка вам нужна?
@@ -84,7 +89,7 @@ const Quiz = ({ state }) => {
                 </div>
             </div>
 
-            <div className="quiz-wrapper">
+            <div className={ `quiz-wrapper ${ inView ? 'active' : '' }` }>
                 <div className="quiz-question">
                     <span className="number hasSlash">2</span>
                     Введите параметры
@@ -105,7 +110,7 @@ const Quiz = ({ state }) => {
                 </div>
             </div>
 
-            <div className="quiz-wrapper">
+            <div className={ `quiz-wrapper ${ inView ? 'active' : '' }` }>
                 <div className="quiz-answers">
                     <div className="quiz-summary">
                         <div className="quiz-summary-title">Итоговая цена:</div>

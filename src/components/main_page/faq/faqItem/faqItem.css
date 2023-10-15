@@ -5,6 +5,9 @@
     padding: 0px 40px;
     font-size: var(--size-18);
     overflow: hidden;
+    transform: translate(0, 50px);
+    opacity: 0;
+    transition: transform .5s linear, opacity .5s linear;
 }
 
 .faq-question {

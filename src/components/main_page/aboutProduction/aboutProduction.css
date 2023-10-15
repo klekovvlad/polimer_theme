@@ -26,6 +26,8 @@
     background-position: top center;
     background-attachment: fixed;
     background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity .2s linear;
 }
 
 .about-production-cards {

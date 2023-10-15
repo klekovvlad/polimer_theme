@@ -19,7 +19,7 @@ const FixedSocialLinks = () => {
         )
     }else {
         return (
-            <div className="social-links-fixed close">
+            <div className="social-links-fixed closed">
                 <button onClick={handleButton} className="social-link open"></button>
             </div>
         )

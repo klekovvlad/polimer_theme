@@ -8,6 +8,9 @@
     font-size: clamp(14px, 1vw, 20px);
     position: relative;
     transition: background .3s linear;
+    opacity: 0;
+    transform: translate(0, 50px);
+    transition: opacity .3s linear, transform .5s linear;
 }
 
 .about-production-card::before {
@@ -21,6 +24,12 @@
     top: 0;
     left: 50%;
     transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity .3s .8s linear;
+}
+
+.about-production-card.active::before {
+    opacity: 1;
 }
 
 .about-production-card:nth-child(even) {

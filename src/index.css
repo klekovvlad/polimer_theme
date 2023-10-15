@@ -96,22 +96,6 @@ section,
     text-wrap: balance;
 }
 
-h2.title {
-    margin: 0px 0px 60px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 60px;
-}
-
-h2.title::after {
-    content: '';
-    flex-grow: 1;
-    flex-basis: 50px;
-    height: 1px;
-    background: var(--color-border);
-}
-
 .hasSlash {
     display: flex;
     align-items: center;
@@ -150,9 +134,7 @@ button.close {
     background-size: 10px;
 }
 
-@media (width < 1199px) {
-    h2.title {
-        margin-bottom: 20px;
-        gap: 20px;
-    }
+.active {
+    opacity: 1;
+    transform: translate(0, 0);
 }

@@ -8,6 +8,20 @@
     margin-bottom: 40px;
 }
 
+.quiz-wrapper {
+    opacity: 0;
+    transform: translate(0, 50px);
+    transition: opacity .5s linear, transform .5s linear;
+}
+
+.quiz-wrapper:nth-child(3) {
+    transition-delay: 1s;
+}
+
+.quiz-wrapper:nth-child(4) {
+    transition-delay: 2s;
+}
+
 .quiz-question {
     display: flex;
     align-items: center;

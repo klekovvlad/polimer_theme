@@ -3,6 +3,7 @@ import Title from '../../title/Title'
 import ProductinCard from './cards/ProductionCard'
 import './productions.css'
 import { AppContext } from '../../../App'
+import Skeleton from '../../skeleton/Skeleton'
 
 const Productions = () => {
     const [title, setTitle] = useState('')
@@ -28,11 +29,17 @@ const Productions = () => {
         <ProductinCard key={item.id} card={item} />
     ))
 
+    const skeletons = [
+        <Skeleton />,
+        <Skeleton />,
+        <Skeleton />,
+    ]
+
     return (
         <section className="production">
             <Title title={title} />
             <div className="production-wrapper">
-                { productionCards }
+                { isLoad ? productionCards : skeletons }
             </div>
         </section>
     )
