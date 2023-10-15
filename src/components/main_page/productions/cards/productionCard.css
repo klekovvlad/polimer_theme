@@ -118,7 +118,8 @@
 }
 
 @media (width < 767px) {
-    .production-card {
+    .production-card,
+    .production .skeleton {
         flex-basis: 100%;
     }
 

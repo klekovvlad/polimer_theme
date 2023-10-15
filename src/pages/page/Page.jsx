@@ -20,7 +20,7 @@ const Page = ({ page_id, button, className }) => {
             setPageContent(data.content.rendered)
             setIsLoad(true)
         })
-    }, [])
+    }, [page_id])
 
     if(isLoad) {
         return (

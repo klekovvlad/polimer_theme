@@ -11,4 +11,5 @@
     height: clamp(340px, 38vw, 730px);
     object-fit: cover;
     object-position: center;
+    display: block;
 }
