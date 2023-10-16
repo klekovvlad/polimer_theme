@@ -10,6 +10,7 @@ import Popup from "./components/popup/Popup"
 import Loader from "./components/loader/Loader"
 
 export const AppContext = createContext([])
+export const FixedSocialLinksContext = createContext()
 
 const App = () => {
 
@@ -21,6 +22,7 @@ const App = () => {
     })
     const [quiz, setQuiz] = useState({})
     const [load, setLoad] = useState(false)
+    const [hideSocialLinks, setHideSocialLinks] = useState(false)
     
 
     useEffect(() => {
@@ -55,8 +57,16 @@ const App = () => {
                         <Route path="/privacy-policy/" element={<Page className="rules" page_id={194} />}/>
                         <Route path="/privacy/" element={<Page className="rules" page_id={192}  />}/>
                     </Routes>
-                    <Footer />
-                    <FixedSocialLinks />
+                    
+                    <FixedSocialLinksContext.Provider 
+                    value={{
+                        hideSocialLinks,
+                        setHideSocialLinks
+                    }}>
+                        <Footer />
+                        <FixedSocialLinks />
+                    </FixedSocialLinksContext.Provider>
+                    
                     <Popup />
                 </AppContext.Provider>
             </BrowserRouter>

@@ -11,6 +11,10 @@
     gap: 20px;
 }
 
+.footer .contacts {
+    margin: 0px auto;
+}
+
 .footer-bottom {
     display: flex;
     align-items: center;

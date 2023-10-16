@@ -22,7 +22,7 @@ const Gallery = ({ state }) => {
 
     if(!state.hide) {
         return (
-            <div ref={ ref } className="gallery">
+            <div ref={ ref } className="gallery-wrap">
                 <Slider 
                     className='gallery' 
                     title={ state.title }

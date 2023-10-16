@@ -41,7 +41,7 @@ const Popup = () => {
         }else{
             setIsLoad(true)
             let str = ''
-            const data = popup.type === POPUP_TYPES.CALLBACK ? {...form, ...quiz} : {...form}
+            const data = popup.type === POPUP_TYPES.ORDER ? {...form, ...quiz} : {...form}
             for(let key in data) {
                 str = str + `${key}: ${data[key]} \n`
             }

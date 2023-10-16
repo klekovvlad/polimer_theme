@@ -18,7 +18,7 @@ const AboutProduction = ( { state } ) => {
         return (
             <section className="about-production">
                 <div className="about-production-wrapper">
-                    <Title title={state.title} />
+                    <Title color={ 'white' } title={state.title} />
                     <div ref={ ref } style={{
                         backgroundImage:  inView ? `url(${state.bg.url})` : 'var(--color-border)' 
                     }} className={ `about-production-img ${ inView ? 'active' : '' }` }></div>

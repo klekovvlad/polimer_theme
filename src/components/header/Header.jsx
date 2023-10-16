@@ -23,7 +23,7 @@ const Header = () => {
                     email: state.acf.email, 
                 }
             ]} />
-            { window.innerWidth > 767 ? <SocialLinks summ={3} /> : '' }
+            {/* { window.innerWidth > 767 ? <SocialLinks summ={3} /> : '' } */}
         </header>
     )
 }

@@ -63,6 +63,10 @@
         background-attachment: local;
     }
 
+    .about-production h2.title.white {
+        color: var(--color-text);
+    }
+
     .about-production-wrapper {
         padding: 0;
     }

@@ -4,6 +4,7 @@
     right: 0;
     transform: translate(0, -50%);
     z-index: 5;
+    transition: transform .3s linear, top .3s linear;
 }
 
 .social-links-fixed .social-links {
@@ -33,7 +34,11 @@
     margin: 0px auto 10px;
 }
 
-.social-link.open {
+.social-link-open {
+    width: 80px;
+    height: 80px;
+    background-color: var(--color-main);
+    border-radius: 10px 0px 0px 10px;
     background-color: var(--color-main);
     background-image: url('/src/img/icons/arrow.svg');
     background-repeat: no-repeat;
@@ -46,13 +51,18 @@
     transform: translate(0, calc(-100% - 20px));
 }
 
+.social-links-fixed.hide {
+    transform: translate(105%, -50%);
+}
+
 @media (width < 1199px) {
     .social-links-fixed {
         top: 100%;
         transform: translate(0, calc(-100% - 20px));
     }
 
-    .social-links-fixed .social-link {
+    .social-links-fixed .social-link,
+    .social-links-fixed .social-link-open {
         width: 50px;
         height: 50px;
     }

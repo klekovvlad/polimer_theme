@@ -67,6 +67,11 @@ a {
     font-display: swap;
 }
 
+body,
+html {
+    overflow-x: hidden;
+}
+
 body {
     color: var(--color-text);
     line-height: 1.2;
