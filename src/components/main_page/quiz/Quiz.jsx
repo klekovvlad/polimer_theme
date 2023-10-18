@@ -95,17 +95,17 @@ const Quiz = ({ state }) => {
                     Введите параметры
                 </div>
                 <div className="quiz-answers">
-                    <div className="input" data-one="см">
+                    <div className="input" data-one="мм">
                         <label htmlFor="input-wide">Ширина</label>
-                        <IMaskInput mask={ Number } type="number" min={0} max={3000} radix="." onChange={ handleInputChange } value={ quiz['Ширина'] } name="Ширина" id="input-wide" placeholder="Введите параметры" />
+                        <IMaskInput mask={ Number } type="number" min={0} max={99999999999999999999} radix="." onInput={ handleInputChange } value={ quiz['Ширина'] } name="Ширина" id="input-wide" placeholder="Введите параметры" />
                     </div>
                     <div className="input" data-one="мм">
                         <label htmlFor="input-hight">Толщина</label>
-                        <IMaskInput mask={ Number } type="number" min={0} max={1000} radix="." onChange={ handleInputChange } value={ quiz['Толщина'] } name="Толщина" id="input-hight" placeholder="Введите параметры" />
+                        <IMaskInput mask={ Number } type="number" min={0} max={999999} radix="." onInput={ handleInputChange } value={ quiz['Толщина'] } name="Толщина" id="input-hight" placeholder="Введите параметры" />
                     </div>
                     <div className="input" data-one="кг">
                         <label htmlFor="input-weight">Вес</label>
-                        <IMaskInput ref={ weightInput } mask={ Number } type="number" min={0} max={5000} radix="." onChange={ handleInputChange } value={ quiz['Вес рулона'] } name="Вес рулона" id="input-weight" placeholder="Введите параметры" />
+                        <IMaskInput ref={ weightInput } mask={ Number } type="number" min={0} max={99999} radix="." onInput={ handleInputChange } value={ quiz['Вес рулона'] } name="Вес рулона" id="input-weight" placeholder="Введите параметры" />
                     </div>
                 </div>
             </div>

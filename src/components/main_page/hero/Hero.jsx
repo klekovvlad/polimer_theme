@@ -29,7 +29,7 @@ const Hero = ({state}) => {
                     { list }
                 </ul>
 
-                <Button click={ handleButton } text={ state.button.text } />
+                {/* <Button click={ handleButton } text={ state.button.text } /> */}
             </div>
 
             <HeroImg img={ state.img } />

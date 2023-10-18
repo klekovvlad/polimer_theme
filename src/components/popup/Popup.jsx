@@ -34,11 +34,17 @@ const Popup = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        const phoneInput = e.target.querySelector('input[name="Телефон"]')
+        let valid = true
+        const inputs = e.target.querySelectorAll('input')
 
-        if(phoneInput.value.length < 16) {
-            phoneInput.classList.add('no-valid')
-        }else{
+        inputs.forEach(input => {
+            if(input.value === '' || input.name === 'Телефон' && input.value.length < 16) {
+                valid = false
+                input.classList.add('no-valid')
+            }
+        });
+
+        if(valid) {
             setIsLoad(true)
             let str = ''
             const data = popup.type === POPUP_TYPES.ORDER ? {...form, ...quiz} : {...form}
@@ -50,14 +56,14 @@ const Popup = () => {
     }
 
     const handleChange = (e) => {
+        
         if(e.target.classList.contains('no-valid')) {
             e.target.classList.remove('no-valid')
         }
 
-        setForm({
-            ...form,
-            [e.target.name]: e.target.value
-        })
+        const newForm = {...form}
+        newForm[e.target.name] = e.target.value
+        setForm(newForm)        
     }
 
     const handleClick = (e) => {
@@ -70,8 +76,8 @@ const Popup = () => {
         if(popup.type === POPUP_TYPES.ORDER) {
             return (
                 <>
-                    <IMaskInput type="tel" mask={ Date } min={ new Date() } max={ new Date(2030, 12, 31) } name="Дата вывоза" value={ form['Дата вывоза'] ? form['Дата вывоза'] : '' } onChange={ handleChange } placeholder="Дата вывоза"/>
-                    <input type="text" name="Имя контрагента" value={ form['Имя контрагента'] ? form['Имя контрагента'] : '' } onChange={ handleChange } placeholder="Имя контрагента" />
+                    <IMaskInput type="tel" mask={ Date } min={ new Date() } max={ new Date(2030, 12, 31) } name="Дата вывоза" value={ form['Дата вывоза'] ? form['Дата вывоза'] : '' } onInput={ handleChange } placeholder="Дата вывоза"/>
+                    <input type="text" name="Имя контрагента" value={ form['Имя контрагента'] ? form['Имя контрагента'] : '' } onInput={ handleChange } placeholder="Имя контрагента" />
                 </>
             )
         }else{
@@ -100,14 +106,16 @@ const Popup = () => {
         })
     }
 
+    console.log(form)
+
     return (
         <div onClick={ handleClick } className={`popup ${ popup.open ? 'open' : '' }`}>
             <div className={`popup-body ${ isLoad ? 'popup-load' : '' }`}>
                 <button onClick={ handleCloseButton } className="close"></button>
                 <div className="popup-title">{ popups[popup.type].title }</div>
                 <form onSubmit={ handleSubmit }>
-                    <input onChange={ handleChange } value={ form['Имя'] } name="Имя" type="text" placeholder="Имя" />
-                    <IMaskInput onChange={ handleChange } mask={ '+{7}(000)000-00-00' } value={ form['Телефон'] } name="Телефон" type="tel" placeholder="Телефон" />
+                    <input onInput={ handleChange } value={ form['Имя'] } name="Имя" type="text" placeholder="Имя" />
+                    <IMaskInput onInput={ handleChange } mask={ '+{7}(000)000-00-00' } value={ form['Телефон'] } name="Телефон" type="tel" placeholder="Телефон" />
                     { renderOrderInputs() }
                     <Button text={ popups[popup.type].button } />
                 </form>
