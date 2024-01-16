@@ -97,7 +97,7 @@ const Quiz = ({ state }) => {
                 <div className="quiz-answers">
                     <div className="input" data-one="мм">
                         <label htmlFor="input-wide">Ширина</label>
-                        <IMaskInput mask={ Number } type="number" min={0} max={99999999999999999999} radix="." onInput={ handleInputChange } value={ quiz['Ширина'] } name="Ширина" id="input-wide" placeholder="Введите параметры" />
+                        <input onInput={handleInputChange} type={'text'} value={quiz['Ширина']} name="Ширина" id="input-wide" placeholder="Введите параметры"/>
                     </div>
                     <div className="input" data-one="мм">
                         <label htmlFor="input-hight">Толщина</label>
